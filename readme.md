@@ -9,3 +9,5 @@ of a player in the chat. `creative-faces` uses [creative](https://github.com/unn
 *the plugin that unifies resource-packs*, and a placeholder system like
 [MiniPlaceholders](https://github.com/MiniPlaceholders/MiniPlaceholders)
 or [PlaceholderAPI](https://github.com/PlaceholderAPI/PlaceholderAPI)
+
+![Screenshot](./.github/screenshot.png)
