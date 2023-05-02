@@ -1,0 +1,6 @@
+name: creative-faces
+version: 1.0.0
+main: team.unnamed.creativefaces.FacesPlugin
+api-version: 1.19
+depend: [creative-central]
+softdepend: [MiniPlaceholders, PlaceholderAPI]
