@@ -5,7 +5,6 @@ import net.kyori.adventure.text.format.NamedTextColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
-import org.bukkit.entity.Player;
 import team.unnamed.creative.central.CreativeCentralProvider;
 import team.unnamed.creativefaces.FacesPlugin;
 
@@ -31,7 +30,6 @@ public final class FacesCommand implements CommandExecutor {
         sender.sendMessage(Component.text("Reloading configuration...", NamedTextColor.GREEN));
         long startTime = System.currentTimeMillis();
         try {
-            ((Player) sender).sendActionBar
             plugin.reloadConfig();
             long duration = System.currentTimeMillis() - startTime;
             sender.sendMessage(Component.text("Done! (" + duration + "ms)\nReloading resource-pack...", NamedTextColor.GREEN));
