@@ -1,5 +1,5 @@
 name: creative-faces
-version: 1.0.0
+version: ${project.version}
 main: team.unnamed.creativefaces.FacesPlugin
 api-version: 1.19
 depend: [creative-central]
