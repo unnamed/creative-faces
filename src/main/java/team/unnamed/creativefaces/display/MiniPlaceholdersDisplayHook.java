@@ -4,9 +4,15 @@ import io.github.miniplaceholders.api.Expansion;
 import net.kyori.adventure.text.minimessage.tag.Tag;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
-import team.unnamed.creativefaces.resourcepack.HeadProvider;
+import team.unnamed.creativefaces.FaceProvider;
 
 public class MiniPlaceholdersDisplayHook implements DisplayHook {
+
+    private final FaceProvider faceProvider;
+
+    public MiniPlaceholdersDisplayHook(FaceProvider faceProvider) {
+        this.faceProvider = faceProvider;
+    }
 
     @Override
     public String plugin() {
@@ -18,7 +24,7 @@ public class MiniPlaceholdersDisplayHook implements DisplayHook {
         Expansion expansion = Expansion.builder("faces")
                 .filter(Player.class)
                 .audiencePlaceholder("player", (audience, arguments, ctx) ->
-                        Tag.selfClosingInserting(HeadProvider.of((Player) audience)))
+                        Tag.selfClosingInserting(faceProvider.get((Player) audience)))
                 .build();
         expansion.register();
     }

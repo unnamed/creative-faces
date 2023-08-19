@@ -1,14 +1,24 @@
 package team.unnamed.creativefaces.display;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.serializer.legacy.LegacyComponentSerializer;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-import team.unnamed.creativefaces.resourcepack.HeadProvider;
+import team.unnamed.creativefaces.FaceProvider;
 
 public class PlaceholderAPIDisplayHook implements DisplayHook {
+
+    private final Plugin plugin;
+    private final FaceProvider faceProvider;
+    private boolean warnNonDefaultFont = true;
+
+    public PlaceholderAPIDisplayHook(Plugin plugin, FaceProvider faceProvider) {
+        this.plugin = plugin;
+        this.faceProvider = faceProvider;
+    }
 
     @Override
     public String plugin() {
@@ -20,7 +30,7 @@ public class PlaceholderAPIDisplayHook implements DisplayHook {
         new FacesExpansion().register();
     }
 
-    private static class FacesExpansion extends PlaceholderExpansion {
+    private class FacesExpansion extends PlaceholderExpansion {
 
         @Override
         public @NotNull String getAuthor() {
@@ -48,7 +58,18 @@ public class PlaceholderAPIDisplayHook implements DisplayHook {
                 return null;
             }
             if (params.equalsIgnoreCase("face")) {
-                return LegacyComponentSerializer.legacySection().serialize(HeadProvider.of(player));
+                Component component = faceProvider.get(player).asComponent();
+                if (component.font() != null) {
+                    // if component uses a custom font, legacy component serializer will
+                    // not work, placeholder api doesn't support this
+                    if (warnNonDefaultFont) {
+                        plugin.getLogger().warning("You set a custom font, it cannot be used with PlaceholderAPI!");
+                        warnNonDefaultFont = false;
+                    }
+                    return null;
+                } else {
+                    return LegacyComponentSerializer.legacySection().serialize(component);
+                }
             } else {
                 return null;
             }

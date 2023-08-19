@@ -4,3 +4,13 @@ main: team.unnamed.creativefaces.FacesPlugin
 api-version: 1.19
 depend: [creative-central]
 softdepend: [MiniPlaceholders, PlaceholderAPI]
+commands:
+  faces:
+    permission-message: You do not have permission to use this command
+    usage: /<command>
+    description: Reload the plugin configuration
+    permission: creativefaces.reload
+permissions:
+  creativefaces.reload:
+    description: Permission to reload the plugin configuration
+    default: op

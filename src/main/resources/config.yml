@@ -1,0 +1,37 @@
+##
+## What characters should we use?
+## Note that these characters cannot be used later
+## in-game, because they are replaced by the textures
+## required to show player heads (Unless you use a
+## custom font, see below)
+##
+characters:
+  offset-8: "\uF8F0"
+  offset-1: "\uF8F1"
+  height:
+    0: "\uF8F2"
+    1: "\uF8F3"
+    2: "\uF8F4"
+    3: "\uF8F5"
+    4: "\uF8F6"
+    5: "\uF8F7"
+    6: "\uF8F8"
+    7: "\uF8F9"
+
+##
+## Which font should we use?
+##
+## - (More compatibility) If you set this to "minecraft:default",
+##   some characters will not be usable in the game anymore. However,
+##   the heads could be shown anywhere where you can put text
+##
+## - (Recommended) If you set a font different to "minecraft:default",
+##   the heads will not usable without components (so it will not work
+##   with plugins that do not support them, such as PlaceholderAPI)
+##
+font: 'minecraft:default'
+
+##
+## The resource-pack namespace for most resources (such as textures)
+##
+namespace: 'creativefaces'
