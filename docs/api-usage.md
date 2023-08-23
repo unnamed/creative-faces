@@ -71,4 +71,4 @@ int[][] deserializedData = Faces.base64ToPixels(serialized);
 PlayerFaceComponent deserializedFace = faceProvider.fromPixels(deserializedData);
 ```
 
-And that's it!
+And that's it! Happy coding!
