@@ -16,7 +16,7 @@ dependencies {
     compileOnly("io.papermc.paper:paper-api:1.19.4-R0.1-SNAPSHOT")
 
     // Creative Central
-    compileOnly("team.unnamed:creative-central-api:0.7.0-SNAPSHOT")
+    compileOnly("team.unnamed:creative-central-api:1.1.0")
 
     // Plugins we hook
     compileOnly("io.github.miniplaceholders:miniplaceholders-api:2.1.0")
